@@ -12,7 +12,7 @@
     >
       <el-button type="primary" :disabled="!projectId">上传二维码</el-button>
     </el-upload>
-    <el-button v-if="auth.user.isAdmin" @click="goProjects" style="margin-left:20px;">项目管理</el-button>
+    <el-button v-if="auth.user.isAdmin" @click="router.push('/projects')" style="margin-left:20px;">项目管理</el-button>
   </el-card>
 </template>
 <script setup>
@@ -21,11 +21,12 @@ import axios from '@/utils/axios';
 import * as api from '@/api/projects';
 import { useAuthStore } from '@/store/auth';
 import { useRouter } from 'vue-router';
-const auth = useAuthStore();
-const router = useRouter();
+const auth=useAuthStore(), router=useRouter();
 const projects=ref([]), projectId=ref('');
-function onSuccess(res){ ElMessage.success(res.message); }
+function onSuccess(res){ alert(res.message); }
 async function load(){ projects.value=(await api.getProjects()).data; }
-function goProjects(){ router.push('/projects'); }
 onMounted(load);
 </script>
+<style>
+.page { padding: 20px; }
+</style>

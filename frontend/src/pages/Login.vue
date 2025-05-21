@@ -19,8 +19,7 @@ import { reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import axios from '@/utils/axios';
 import { useAuthStore } from '@/store/auth';
-const router = useRouter();
-const auth = useAuthStore();
+const router = useRouter(), auth = useAuthStore();
 const form = reactive({ username:'', password:'' });
 async function submit() {
   const { data } = await axios.post('/auth/login', form);

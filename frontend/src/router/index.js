@@ -13,10 +13,7 @@ const routes = [
   { path: '/', redirect: '/upload' }
 ];
 
-const router = createRouter({
-  history: createWebHistory(),
-  routes
-});
+const router = createRouter({ history: createWebHistory(), routes });
 
 router.beforeEach((to, from, next) => {
   const auth = useAuthStore();
