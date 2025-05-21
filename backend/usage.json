@@ -1,0 +1,10 @@
+{
+  "users": {
+    "admin": {
+      "password": "$2b$10$6mMLeg1Md8rOBHeXYmpXXeLLNszRntUMgvDbTc6nVloPdIDHZ7op2",
+      "limit": 999,
+      "usage": {}
+    }
+  },
+  "projects": []
+}
