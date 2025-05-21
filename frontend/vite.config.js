@@ -1,13 +1,16 @@
-
+// frontend/vite.config.js
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import path from 'path'
+
 export default defineConfig({
-  root: 'public',
-  build: {
-    outDir: '../dist',
-    emptyOutDir: true
+  plugins: [vue()],
+  resolve: {
+    alias: { '@': path.resolve(__dirname, 'src') }
   },
-  plugins: [
-    vue()
-  ]
+  publicDir: 'public',    // 其余静态文件仍放 public/
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true
+  }
 })
